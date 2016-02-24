@@ -6,6 +6,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = iOSTweakTmall
 iOSTweakTmall_FILES = Tweak.xm ObjC.m  # 源文件
+# .xm 中 x表示Logos语法，m是objc
 
 iOSTweakTmall_FRAMEWORKS = UIKit Foundation  # 苹果公共库
 iOSTweakTmall_PRIVATE_FRAMEWORKS = AppSupport  # 苹果私有库
