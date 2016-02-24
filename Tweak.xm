@@ -38,6 +38,7 @@ the generation of a class list and an automatic constructor.
 %hook TMAppDelegate
 - (BOOL)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 {
     LoggerSetViewerHost(NULL, (CFStringRef)@"10.59.92.217", (UInt32)50000);
+    //LoggerSetupBonjour(NULL, NULL, (CFStringRef)@"tmall");
 
     return %orig;
 }

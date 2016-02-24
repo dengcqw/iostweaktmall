@@ -6,6 +6,7 @@
 build/
 DerivedData
 .theos/
+debs/*
 
 ## Various settings
 *.pbxuser
