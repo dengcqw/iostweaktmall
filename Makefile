@@ -5,9 +5,9 @@ TARGET = iphone:latest:8.0
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = iOSTweakTmall
-iOSTweakTmall_FILES = Tweak.xm
+iOSTweakTmall_FILES = NSLogger/LoggerClient.m Tweak.xm
 
-iOSREProject_FRAMEWORKS = UIKit NSFoundation
+iOSTweakTmall_FRAMEWORKS = UIKit
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 

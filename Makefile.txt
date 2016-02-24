@@ -1,0 +1,21 @@
+THEOS_DEVICE_IP = 10.59.92.214 # 可以用 make package install 直接安装
+ARCHS = arm64 armv7      # 不需要改动
+TARGET = iphone:latest:8.0   #  TARGET = iphone:[Base SDK]:[Deployment Target]
+
+include $(THEOS)/makefiles/common.mk
+
+TWEAK_NAME = iOSTweakTmall
+iOSTweakTmall_FILES = Tweak.xm ObjC.m  # 源文件
+
+iOSTweakTmall_FRAMEWORKS = UIKit Foundation  # 苹果公共库
+iOSTweakTmall_PRIVATE_FRAMEWORKS = AppSupport  # 苹果私有库
+
+iOSTweakTmall_LDFLAGS = -lx  # 通过GNU Linker链接Mach-O对象，包括.dylib .a .o
+# -lx代表链接libx.a或libx.dylib，即给x加上lib前缀以及.a或.dylib后缀；如果x是y.o形式，则直接链接y.o
+# 要链接libsqlite.3.0.dylib libz.dylib dylib1.o 则写成下面：
+#iOSTweakTmall_LDFLAGS = -lz -lsqlite3.0 -ldylib1.o
+
+include $(THEOS_MAKE_PATH)/tweak.mk    # 对应工程类型，安需修改，一般有application.mk tweak.mk tool.mk
+
+after-install::
+	install.exec "killall -9 Tmall4iPhone"
